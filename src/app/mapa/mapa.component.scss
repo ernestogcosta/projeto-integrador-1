@@ -1,0 +1,88 @@
+.mapa {
+	position: relative;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	
+	&>svg {
+		background-color: rgba(#fff,1.0);
+		
+		.grid {
+			stroke:rgba(black, 0.5);
+			stroke-width:0.5
+		}
+		.pontos {
+			.ponto {
+				position: relative;
+				&.pontoIni {
+					fill: rgba(blue, 1.0);
+					z-index: 5;
+				}
+				&.pontoFim {
+					fill: rgba(red, 1.0);
+					z-index: 6;
+				}
+				&.pontoMovel {
+					position: relative;
+					z-index: 9;
+					transition: all 0.25s ease;
+					
+					.shape {
+						fill: rgba(orange, 0.8);
+						transition: all 0.25s ease;
+						transform-origin: 15px 15px;
+					}
+				}
+			}
+		}
+	}
+	/*
+	.fundo {
+		background: url('../../assets/quadri.png') repeat center;
+		background-size: 200px auto;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	
+	.ponto {
+		font-size: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(-50%, -50%);
+		color: rgba(blue, 1.0);
+		
+		&.pontoIni {
+			color: rgba(blue, 1.0);
+			z-index: 5;
+		}
+		&.pontoFim {
+			color: rgba(red, 1.0);
+			z-index: 6;
+		}
+		&.pontoMovel {
+			z-index: 9;
+			transition: all 0.25s ease;
+			width: 30px;
+			height: 30px;
+			text-align:center;
+			//border: 1px solid rgba(black, 0.5);
+			
+			.shape {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				fill: rgba(orange, 0.8);
+				transform-origin: 15px 15px;
+				transition: all 0.25s ease;
+			}
+		}
+	}
+	// */
+}

@@ -1,0 +1,55 @@
+<title>Primeiro desafio</title>
+<div class="container color-dark">
+  <div class="col">
+    <p>Ferramentas:</p>
+  </div>
+  <div class="col">
+    <p>Programa:</p>
+  </div>
+</div>
+<div class="container color-light">
+  <div class="col">
+    <form>
+      <input type="submit" class="btn0" value="Avançar" (click)="addAdv()"> 
+      <input type="submit" class="btn" value="Virar esquerda" (click)="addEsquerda()">
+      <input type="submit" class="btn4" value="Virar direita" (click)="addDireita()"> 
+      <input type="submit" class="btn2" value="Clear" (click)="clear()">
+      <input type="submit" class="btn3" value="Rodar" (click)="rodarPrograma()">
+    </form>
+    <p class="info-container">Desafio 1</p>
+    <div class="A-container">
+    <p class="sm">Utilize as variáveis,loops e testes acima para mover o seu personagem até o objetivo.</p>
+		<ul class="sm">
+			<li>Posição inicial: X = 0 e Y = 0</li>
+      <li>Direção inicial = 2 (LESTE)</li>
+      <li>Posição do objetivo: X = 4 e Y = 2</li>
+		</ul>
+    <p class="sm">Dicas:</p>
+    <ol>
+      <li>Norte</li>
+      <li>Leste</li>
+      <li>Sul</li>
+      <li>Oeste</li>
+    </ol>
+    </div>
+  </div>
+  <div class="col">
+    <div class="col-in">
+			<div class="ifo-container" *ngFor="let item of comandosService.listaComandos" >
+				{{item.label}}
+			</div>
+			<!--
+			<div class="ifo-container" *ngFor="let loops of loops">
+				{{ loops }}
+			</div>
+			<!---->
+		</div>
+		<div class="out-container">
+    
+    </div>
+    <p></p>
+    <nav>
+      <input type="submit" class="btn3" routerLink="/frontpage" value="Retornar a frontpage">
+    </nav>
+  </div>
+</div>

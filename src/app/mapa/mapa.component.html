@@ -1,0 +1,33 @@
+<div class="mapa">
+	<svg [attr.width]="cols*gap" [attr.height]="rows*gap">
+		<g class="grids">
+			<line class="grid gridW" [attr.x1]="col*gap" [attr.x2]="col*gap" [attr.y1]="0" [attr.y2]="rows*gap" *ngFor="let col of gridW" />
+			<line class="grid gridH" [attr.x1]="0" [attr.x2]="cols*gap" [attr.y1]="row*gap" [attr.y2]="row*gap" *ngFor="let row of gridH" />
+		</g>
+		
+		<g class="pontos">
+			<circle class="ponto pontoIni" [attr.cx]="(center.x + posicaoIni.x)*gap" [attr.cy]="(center.y - posicaoIni.y)*gap" [attr.r]="gap/4" />
+			<circle class="ponto pontoFim" [attr.cx]="(center.x + posicaoFim.x)*gap" [attr.cy]="(center.y - posicaoFim.y)*gap" [attr.r]="gap/4" />
+			
+			<g class="ponto pontoMovel" [ngStyle]="{'transform': 'translate('+(((center.x + pontoMovel.x)*gap)-15)+'px, '+(((center.y - pontoMovel.y)*gap)-15)+'px)'}" >
+				<polygon points="5,10 15,0 25,10 25,25 5,25" class="shape" [ngStyle]="{'transform':'rotate('+((pontoMovel.dir - 1)*90)+'deg)'}" />
+			</g>
+		</g>
+		<g class="rota" [ngStyle]="{'transform': 'translate('+((center.x*gap))+'px, '+((center.y*gap))+'px)'}">
+			<line [attr.x1]="linha.x1 * gap" [attr.y1]="-linha.y1 * gap" [attr.x2]="linha.x2 * gap" [attr.y2]="-linha.y2 * gap" style="stroke:rgb(255,0,0);stroke-width:2" *ngFor="let linha of linhas" />
+		</g>
+	</svg>
+	<!--
+	<div class="fundo"></div>
+	<div class="pontos">
+		<div class="ponto pontoIni" [ngStyle]="{'left': (posicaoIni.x * 25)+'px', 'top': (-posicaoIni.y * 25)+'px'}" >&bull;</div>
+		<div class="ponto pontoFim" [ngStyle]="{'left': (posicaoFim.x * 25)+'px', 'top': (-posicaoFim.y * 25)+'px'}" >&bull;</div>
+		<svg class="ponto pontoMovel" [ngStyle]="{'left': (pontoMovel.x * 25)+'px', 'top': (-pontoMovel.y * 25)+'px'}" >
+			<polygon points="5,10 15,0 25,10 25,25 5,25" class="shape" [ngStyle]="{'transform':'rotate('+((pontoMovel.dir - 1)*90)+'deg)'}" />
+		</svg>
+		<svg class="rota">
+			<line [attr.x1]="linha.x1 * 25" [attr.y1]="-linha.y1 * 25" [attr.x2]="linha.x2 * 25" [attr.y2]="-linha.y2 * 25" style="stroke:rgb(255,0,0);stroke-width:2" *ngFor="let linha of linhas" />
+		</svg>
+	</div>
+	<!---->
+</div>
